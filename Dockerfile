@@ -1,9 +1,10 @@
 FROM node:20
 
-COPY dist ./dist
-COPY node_modules ./node_modules
 COPY package.json ./
 COPY package-lock.json ./
+RUN npm install --production
+
+COPY dist ./dist
 
 EXPOSE 3000
 
